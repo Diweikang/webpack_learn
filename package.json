@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Diweikang/webpack_learn#readme",
   "devDependencies": {
+    "file-loader": "^6.0.0",
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
