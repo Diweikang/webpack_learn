@@ -9,13 +9,17 @@ module.exports = {
         test: /\.png$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
-              name: '[name].[ext]',
-              outputPath: '/images'
+              // 表示当图片小于8kb时，打包后图片以base64形式存储，否则copy对应图片
+              limit: true
             }
           }
         ]
+      },
+      {
+        test: /\.css$/,
+        loader: ['style-loader', 'css-loader']
       }
     ]
   },
