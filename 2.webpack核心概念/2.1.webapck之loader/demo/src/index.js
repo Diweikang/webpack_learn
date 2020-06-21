@@ -1,5 +1,5 @@
 import concept from '../../imgs/1.loader-concept.png';
-import './index.css';
+import './index.scss';
 
 var img = new Image()
 img.src = concept
