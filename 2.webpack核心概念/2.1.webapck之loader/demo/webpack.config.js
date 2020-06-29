@@ -6,6 +6,14 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(eot|ttf|svg|woff)$/,
+        use: [
+          {
+            loader: 'file-loader',
+          }
+        ]
+      },
+      {
         test: /\.png$/,
         use: [
           {
