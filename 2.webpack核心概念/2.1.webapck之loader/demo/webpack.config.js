@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './src/index.js',
   module: {
     rules: [
@@ -10,6 +10,9 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
+            options: {
+              esModule: false,
+            }
           }
         ]
       },
