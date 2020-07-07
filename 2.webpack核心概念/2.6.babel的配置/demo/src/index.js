@@ -1,4 +1,3 @@
-import "@babel/polyfill";
 const arr = [
   new Promise(() => { }),
   new Promise(() => { })

@@ -20,15 +20,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,      // 对node_modules中的js代码不做处理
         use: {
-          loader: "babel-loader",
-          options: {
-            presets: [['@babel/preset-env', {
-              "targets": {
-                "chrome": "67"
-              },
-              "useBuiltIns": "usage",
-            }]]
-          }
+          loader: "babel-loader"
         }
       }
     ]
