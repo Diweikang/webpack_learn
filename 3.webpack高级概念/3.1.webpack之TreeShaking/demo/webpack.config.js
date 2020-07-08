@@ -30,7 +30,9 @@ module.exports = {
     new HtmlWebpackPlugin(),
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false
-    }),
-    
-  ]
+    })
+  ],
+  optimization: {
+    usedExports: true
+  }
 }
