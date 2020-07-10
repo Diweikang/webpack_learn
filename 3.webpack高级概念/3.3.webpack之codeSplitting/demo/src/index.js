@@ -1,2 +1,11 @@
-var result = _.join(['di', 'wei', 'kang'], '*')
-console.log(result)
+function getComponent() {
+  return import('lodash').then(({ default: _ }) => {
+    var element = document.createElement('div');
+    element.innerHTML = _.join(['dell', 'lee'], '-');
+    return element
+  })
+}
+
+getComponent().then(element => {
+  document.body.appendChild(element);
+})
