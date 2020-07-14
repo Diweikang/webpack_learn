@@ -13,6 +13,26 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',  // 表示支持所有的导入方式(异步/同步)
+      minSize: 0,
+      maxSize: 0,
+      automaticNameDelimiter: '-',
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          filename: 'vendors.js'
+        },
+        default: {
+          priority: -20,
+          reuseExistingChunk: true,
+          filename: 'common.js'
+        }
+      }
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin(),
     new CleanWebpackPlugin({
