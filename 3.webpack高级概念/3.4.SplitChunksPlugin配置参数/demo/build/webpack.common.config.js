@@ -3,27 +3,36 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      }
-    ]
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',  // 表示支持所有的导入方式(异步/同步)
-      minSize: 0,
-      maxSize: 0,
-      automaticNameDelimiter: '-',
+	entry: {
+		main: './src/index.js'
+	},
+	module: {
+		rules: [{ 
+			test: /\.js$/, 
+			exclude: /node_modules/, 
+			loader: 'babel-loader',
+		}]
+	},
+	plugins: [
+		new HtmlWebpackPlugin(), 
+		new CleanWebpackPlugin({
+			root: path.resolve(__dirname, '../dist')
+		})
+	],
+	optimization: {
+		splitChunks: {
+      chunks: 'all',
+      minSize: 30000,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
-          filename: 'vendors.js'
+          filename: 'vendors.js',
         },
         default: {
           priority: -20,
@@ -32,15 +41,9 @@ module.exports = {
         }
       }
     }
-  },
-  plugins: [
-    new HtmlWebpackPlugin(),
-    new CleanWebpackPlugin({
-      cleanStaleWebpackAssets: true
-    })
-  ],
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, '../dist')
-  }
+	},
+	output: {
+		filename: '[name].js',
+		path: path.resolve(__dirname, '../dist')
+	}
 }
