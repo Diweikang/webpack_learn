@@ -3,7 +3,7 @@ const commonConfig = require('./webpack.common.config');
 const { merge } = require('webpack-merge')
 
 const prodConfig = {
-  mode: 'development',
+  mode: 'production',
   devtool: 'cheap-module-eval-source-map'
 }
 
