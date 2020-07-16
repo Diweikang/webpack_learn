@@ -21,7 +21,7 @@ module.exports = {
 	],
 	optimization: {
 		splitChunks: {
-      chunks: 'all',
+      chunks: 'async',
       minSize: 30000,
       minChunks: 1,
       maxAsyncRequests: 5,
@@ -32,7 +32,7 @@ module.exports = {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
-          filename: 'vendors.js',
+          // filename: 'vendors.js',
         },
         default: {
           priority: -20,
