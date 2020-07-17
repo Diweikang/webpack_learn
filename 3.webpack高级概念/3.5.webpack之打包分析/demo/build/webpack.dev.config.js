@@ -5,7 +5,7 @@ const { merge } = require('webpack-merge');
 
 const devConfig = {
   mode: 'development',
-  // devtool: 'cheap-module-source-map',
+  devtool: 'none',
   devServer: {
     open: true,
     contentBase: path.join(__dirname, 'dist'),

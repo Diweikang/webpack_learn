@@ -5,12 +5,14 @@
 // import test from './test.js';
 // console.log(test.name);
 
-import _ from 'lodash';
+// import _ from 'lodash';
 // import moment from 'moment';
 
-var element = document.createElement('div');
-element.innerHTML = _.join(['Dell', 'Lee'], '-');
-document.body.appendChild(element);
+document.addEventListener('click', () => {
+  var element = document.createElement('div');
+  element.innerHTML = 'Dell Lee';
+  document.body.appendChild(element);
+})
 // console.log(moment)
 
 // function getComponent() {
