@@ -23,8 +23,18 @@ module.exports = {
 			},	
 			{ 
 				test: /\.js$/, 
-				exclude: /node_modules/, 
-				loader: 'babel-loader',
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: 'imports-loader',
+            options: {
+              wrapper: 'window'
+            }
+          }
+        ]
 			}
 		]
 	},

@@ -7,9 +7,11 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-const a = 'hello world';
-console.log(this);
-console.log(this.a);
+/*** IMPORTS FROM imports-loader ***/
+(function () {
+  console.log(this);
+  console.log(this === window);
+}).call(window);
 
 /***/ })
 
