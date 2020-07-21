@@ -1,8 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
 	entry: {
@@ -13,7 +12,7 @@ module.exports = {
 			{ 
 				test: /\.css$/, 
 				use: [
-					{ loader: MiniCssExtractPlugin.loader },
+					{ loader: 'style-loader' },
           {
             loader: 'css-loader',
             options: {
@@ -34,18 +33,18 @@ module.exports = {
 		new CleanWebpackPlugin({
 			root: path.resolve(__dirname, '../dist')
 		}),
-		new MiniCssExtractPlugin(),
-		new OptimizeCSSAssetsPlugin()
+		new webpack.ProvidePlugin({
+			$: 'jquery',
+			_join: ['lodash', 'join']
+		})
 	],
 	optimization: {
+		runtimeChunk: {
+			name: 'runtime'
+		},
 		splitChunks: {
       chunks: 'all'
-		},
-		minimizer: [new OptimizeCSSAssetsPlugin({})]
+		}
 	},
-	output: {
-		filename: '[name].js',
-		chunkFilename: '[name].chunk.js',
-		path: path.resolve(__dirname, '../dist')
-	}
+	performance: false
 }
