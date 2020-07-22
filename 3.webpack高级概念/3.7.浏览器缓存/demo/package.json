@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "bundle": "webpack --config ./build/webpack.dev.config",
-    "dev": "webpack-dev-server --config ./build/webpack.dev.config",
-    "build": "webpack --config ./build/webpack.prod.config"
+    "bundle": "webpack --config ./build/webpack.common.config",
+    "dev": "webpack-dev-server --config ./build/webpack.common.config",
+    "build": "webpack --env.production --config ./build/webpack.common.config"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",

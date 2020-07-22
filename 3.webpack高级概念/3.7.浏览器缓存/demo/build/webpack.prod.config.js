@@ -1,6 +1,4 @@
 const path = require('path');
-const commonConfig = require('./webpack.common.config');
-const { merge } = require('webpack-merge')
 
 const prodConfig = {
   mode: 'production',
@@ -12,4 +10,4 @@ const prodConfig = {
 	}
 }
 
-module.exports = merge(commonConfig, prodConfig)
+module.exports = prodConfig
